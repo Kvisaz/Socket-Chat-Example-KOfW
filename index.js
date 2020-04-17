@@ -3,10 +3,6 @@ const app = express(); // наше приложение/сервер
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "./index.html");
-});
-
 io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
 
 io.on("connection", (socket) => {
@@ -23,7 +19,14 @@ io.on("connection", (socket) => {
     });
 })
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client"));
+    app.get("/", (req, res) => {
+        res.sendFile(__dirname + "./index.html");
+    });
+}
+
 http.listen(() => {
-    console.log('listening on *:3000');
+    console.log('app started');
 });
 
