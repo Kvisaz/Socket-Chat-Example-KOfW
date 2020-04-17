@@ -6,7 +6,8 @@ const path = require("path");
 
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'index.html'))
+    //res.sendFile(path.resolve(__dirname, 'index.html'))
+    res.end('deployed')
 });
 
 io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); // This will emit the event to all connected sockets
