@@ -1,0 +1,26 @@
+{
+  "name": "socket-chat-example-kofw",
+  "version": "0.1.0",
+  "description": "My first socket.io project. Tutorial from https://socket.io/get-started/chat/.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon"
+  },
+  "keywords": [
+    "nodejs",
+    "socket.io",
+    "chat",
+    "training",
+    "tutorial"
+  ],
+  "author": "Gedelborius",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
